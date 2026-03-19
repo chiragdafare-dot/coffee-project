@@ -1,6 +1,7 @@
 const express = require('express');
 const Razorpay = require('razorpay');
 const cors = require('cors');
+app.use(express.static("public"));
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 
