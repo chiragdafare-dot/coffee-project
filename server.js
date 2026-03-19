@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 // Razorpay setup
 const razorpay = new Razorpay({
   key_id: "rzp_test_eHn3iQx1qlPNj3",
-  key_secret: "YOUR_KEY_SECRET"
+  key_secret: "rje0IJ0JqOm5wrGIyLpNy8U3M"
 });
 
 // Create order
