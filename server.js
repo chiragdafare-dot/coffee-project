@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/coffee');
+// mongoose.connect('mongodb://127.0.0.1:27017/coffee');
 
 const OrderSchema = new mongoose.Schema({
   paymentId: String,
@@ -46,7 +46,7 @@ app.post('/verify-payment', async (req, res) => {
     status: "Confirmed"
   });
 
-  await order.save();
+  // await order.save();
 
   sendEmail("customer@gmail.com", req.body.amount);
 
