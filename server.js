@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static(__dirname));
 
 // MongoDB
 // mongoose.connect('mongodb://127.0.0.1:27017/coffee');
@@ -78,4 +79,5 @@ function sendEmail(to, amount){
 }
 
 const PORT = process.env.PORT || 5000;
+app.get('/', (req, res) => 
 app.listen(PORT, () => console.log("Server running"));
