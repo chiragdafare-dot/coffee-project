@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coffee Shop</title>
+</head>
+<body>
+
+<h1>☕ Coffee Shop</h1>
+<button onclick="payNow()">Pay Now</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+async function payNow() {
+  const res = await fetch('/create-order', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ amount: 100 })
+  });
+
+  const data = await res.json();
+
+  const options = {
+    key: "rzp_test_eHn3iQx1qlPNj3",
+    amount: data.amount,
+    currency: "INR",
+    order_id: data.id,
+    handler: function (response) {
+      alert("Payment Successful!");
+    }
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
+
+</body>
+</html>
